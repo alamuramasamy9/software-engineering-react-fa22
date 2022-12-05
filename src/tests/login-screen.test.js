@@ -20,7 +20,7 @@ const MOCKED_USERS = [
 
 test("mocked hello world axios works", async () => {
   axios.get.mockImplementation(() =>
-    Promise.resolve({ data: {message: 'hello world'} }));
+      Promise.resolve({ data: {message: 'hello world'} }));
   const response = await axios.get();
   expect(response.data.message).toEqual('hello world')
 });
@@ -28,7 +28,7 @@ test("mocked hello world axios works", async () => {
 describe('sss', () => {
   test("mocked hello world axios works", async () => {
     axios.get.mockImplementation(() =>
-      Promise.resolve({ data: {message: 'hello world'} }));
+        Promise.resolve({ data: {message: 'hello world'} }));
     const response = await axios.get();
     expect(response.data.message).toEqual('hello world')
   });
@@ -36,7 +36,7 @@ describe('sss', () => {
 
 test("find all users mock works", async () => {
   axios.get.mockImplementation(() =>
-    Promise.resolve({ data: {users: MOCKED_USERS} }));
+      Promise.resolve({ data: {users: MOCKED_USERS} }));
   const response = await services.findAllUsers();
   const users = response.users;
   expect(users.length).toEqual(MOCKED_USERS.length);
@@ -48,7 +48,7 @@ test("find all users mock works", async () => {
 describe('fff', () => {
   test("find all users mock works", async () => {
     axios.get.mockImplementation(() =>
-      Promise.resolve({ data: {users: MOCKED_USERS} }));
+        Promise.resolve({ data: {users: MOCKED_USERS} }));
     const response = await services.findAllUsers();
     const users = response.users;
     expect(users.length).toEqual(MOCKED_USERS.length);
@@ -61,7 +61,7 @@ describe('fff', () => {
 describe('www', () => {
   beforeEach(() => {
     axios.get.mockImplementation(() =>
-      Promise.resolve({ data: {users: MOCKED_USERS} }));
+        Promise.resolve({ data: {users: MOCKED_USERS} }));
 
     act(() => {
       render(<Tuiter/>)
@@ -72,7 +72,7 @@ describe('www', () => {
   test("login renders users", async () => {
     // console.log(qwe);
     axios.get.mockImplementation(() =>
-      Promise.resolve({ data: {users: MOCKED_USERS} }));
+        Promise.resolve({ data: {users: MOCKED_USERS} }));
 
     await act(async () => {
       // get all the links
@@ -90,52 +90,6 @@ describe('www', () => {
     });
 
 
-    // act(() => {
-    //   const loginLink = screen.getByText(/Login/i);
-    //   console.log(loginLink)
-    //   // // get all the links
-    //   // const a = document.querySelectorAll("a");
-    //   // // click on the nth link
-    //   // fireEvent.click(a[nth]);
-    // })
-
-    // ;
-    // await waitFor(() => {
-    //   const linkElement = screen.getByText(/ellenripley/i);
-    //   expect(linkElement).toBeInTheDocument();
-    // });
-
-    // expect(await screen.getByText(/ellen_ripley/i)).toBeInTheDocument();
-
-    // const {container} = render(
-    //   <HashRouter>
-    //     <Login/>
-    //   </HashRouter>
-    // );
-
-
-    // act(() => {
-    //   render(
-    //     <HashRouter>
-    //       <Login/>
-    //     </HashRouter>
-    //   )
-    // });
-    //
-    // const a = document.querySelectorAll("a");
-    //
-    //   console.log(a);
-
-    // await waitFor(async () => {
-    //   await screen.getByText(/ellen_ripley/i);
-    //   expect(user).toBeInTheDocument();
-    // }, {timeout: 5000});
-
-    // screen.getByText(/ellen_ripley/i)
-    //   .then(ddd => {
-    //     console.log(ddd)
-    //     // expect(user).toBeInTheDocument();
-    //   })
   });
 });
 
@@ -164,9 +118,9 @@ describe('createUser', () => {
 
     act(() => {
       render(
-        <HashRouter>
-          <Login/>
-        </HashRouter>
+          <HashRouter>
+            <Login/>
+          </HashRouter>
       );
     });
 
@@ -244,21 +198,21 @@ describe('findAllUsers',  () => {
 
   // setup
   beforeAll(() =>
-    // insert several known users
-    usernames.map(username =>
-      createUser({
-        username,
-        password: `${username}123`,
-        email: `${username}@stooges.com`
-      })
-    )
+      // insert several known users
+      usernames.map(username =>
+          createUser({
+            username,
+            password: `${username}123`,
+            email: `${username}@stooges.com`
+          })
+      )
   );
 
   afterAll(() =>
-    // delete the users we inserted
-    usernames.map(username =>
-      deleteUsersByUsername(username)
-    )
+      // delete the users we inserted
+      usernames.map(username =>
+          deleteUsersByUsername(username)
+      )
   );
 
   test('user service can retrieve all users from database', async () => {
@@ -268,7 +222,7 @@ describe('findAllUsers',  () => {
     expect(users.length).toBeGreaterThanOrEqual(usernames.length);
 
     const usersWeInserted = users.filter(
-      user => usernames.indexOf(user.username) >= 0);
+        user => usernames.indexOf(user.username) >= 0);
 
     usersWeInserted.forEach(user => {
       const username = usernames.find(username => username === user.username);
